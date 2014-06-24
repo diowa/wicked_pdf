@@ -35,14 +35,13 @@ class WickedPdf
   cattr_accessor :config
 
   def initialize(wkhtmltopdf_binary_path = nil)
-    Rails.logger.info "WICKEDPDF DEBUGGING: defined?(Bundler) = #{defined?(Bundler)}"
-    Rails.logger.info "WICKEDPDF DEBUGGING: wkhtmltopdf_binary_path = #{wkhtmltopdf_binary_path}"
-    Rails.logger.info "WICKEDPDF DEBUGGING: find_wkhtmltopdf_binary_path = #{find_wkhtmltopdf_binary_path}"
+    logger.info "WICKEDPDF DEBUGGING: defined?(Bundler) = #{defined?(Bundler)}"
+    logger.info "WICKEDPDF DEBUGGING: wkhtmltopdf_binary_path = #{wkhtmltopdf_binary_path}"
+    logger.info "WICKEDPDF DEBUGGING: find_wkhtmltopdf_binary_path = #{find_wkhtmltopdf_binary_path}"
 
-    #@exe_path = wkhtmltopdf_binary_path || find_wkhtmltopdf_binary_path
-    @exe_path = find_wkhtmltopdf_binary_path
+    @exe_path = wkhtmltopdf_binary_path || find_wkhtmltopdf_binary_path
 
-    Rails.logger.info "WICKEDPDF DEBUGGING: @exe_path = #{@exe_path}"
+    logger.info "WICKEDPDF DEBUGGING: @exe_path = #{@exe_path}"
 
     raise "Location of #{EXE_NAME} unknown" if @exe_path.empty?
     raise "Bad #{EXE_NAME}'s path: #{@exe_path}" unless File.exists?(@exe_path)
