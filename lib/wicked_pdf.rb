@@ -39,7 +39,8 @@ class WickedPdf
     Rails.logger.info "WICKEDPDF DEBUGGING: wkhtmltopdf_binary_path = #{wkhtmltopdf_binary_path}"
     Rails.logger.info "WICKEDPDF DEBUGGING: find_wkhtmltopdf_binary_path = #{find_wkhtmltopdf_binary_path}"
 
-    @exe_path = wkhtmltopdf_binary_path || find_wkhtmltopdf_binary_path
+    #@exe_path = wkhtmltopdf_binary_path || find_wkhtmltopdf_binary_path
+    @exe_path = find_wkhtmltopdf_binary_path
 
     Rails.logger.info "WICKEDPDF DEBUGGING: @exe_path = #{@exe_path}"
 
