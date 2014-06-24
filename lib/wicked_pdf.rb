@@ -35,7 +35,14 @@ class WickedPdf
   cattr_accessor :config
 
   def initialize(wkhtmltopdf_binary_path = nil)
+    puts "WICKEDPDF DEBUGGING: defined?(Bundler) = #{defined?(Bundler)}"
+    puts "WICKEDPDF DEBUGGING: wkhtmltopdf_binary_path = #{wkhtmltopdf_binary_path}"
+    puts "WICKEDPDF DEBUGGING: find_wkhtmltopdf_binary_path = #{find_wkhtmltopdf_binary_path}"
+
     @exe_path = wkhtmltopdf_binary_path || find_wkhtmltopdf_binary_path
+
+    puts "WICKEDPDF DEBUGGING: @exe_path = #{@exe_path}"
+
     raise "Location of #{EXE_NAME} unknown" if @exe_path.empty?
     raise "Bad #{EXE_NAME}'s path: #{@exe_path}" unless File.exists?(@exe_path)
     raise "#{EXE_NAME} is not executable" unless File.executable?(@exe_path)
